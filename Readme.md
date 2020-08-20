@@ -4,4 +4,4 @@
 
 ## Contexto
 
-Proyecto prueba de desarrollador SYC - Creación de una WEBAPI de tipo Rest consumida desde un FrontEND en Angular
+Proyecto prueba de desarrollador SYC - Creación de una WEBAPI de tipo Rest consumida desde un FrontEND en AngularJS 9.1.9.
