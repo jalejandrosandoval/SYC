@@ -6,9 +6,9 @@ export interface InvoicesModel {
     id_Factura: number,
     _IdClient: number,
     clients: ClientsModel[],
-    codeStatus: string,
+    codeStatus: number,
     invoicesStatus: InvoicesStatusModel[];
     valor: number,
     fechaFac: Date
-    
+
 }

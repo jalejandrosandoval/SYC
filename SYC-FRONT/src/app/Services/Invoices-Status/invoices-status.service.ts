@@ -23,4 +23,26 @@ export class InvoicesStatusService {
     return this.http.get<InvoicesStatusModel[]>(this.ApiPath);  
   }
 
+  getInvoicesStatusById(Id: Number): Observable<InvoicesStatusModel>{
+    return this.http.get<InvoicesStatusModel>(`${this.ApiPath}/${Id}`);
+  }
+
+  postInvoicesStatus(_IInvoiceStatusModel: InvoicesStatusModel): Observable<InvoicesStatusModel>{
+    return this.http.post<InvoicesStatusModel>(this.ApiPath, _IInvoiceStatusModel)
+      .pipe(
+        map(Client => {
+          return Client;
+        }
+      ));
+  }
+
+  putInvoicesStatus(_IInvoiceStatusModel: InvoicesStatusModel): Observable<InvoicesStatusModel>{
+    
+    return this.http.put<InvoicesStatusModel>(`${this.ApiPath}/${_IInvoiceStatusModel.codeStatus}`,  _IInvoiceStatusModel);
+  }
+  
+  deleteInvoicesStatus(IdInvDelete : number): Observable<any>{
+    return this.http.delete<any>(`${this.ApiPath}/${IdInvDelete}`);
+  }
+
 }

@@ -17,27 +17,27 @@
                     No existen registros para mostrar
                 </p>
 
-                <div class="card shadow mb-4"  *ngIf="_IInvoice && _IInvoice.length">
+                <div class="card shadow mb-4" *ngIf="_IInvoice && _IInvoice.length">
 
                     <div class="card-body">
 
                         <div class="d-sm-flex justify-content-between mb-4">
                             <p>
-                                <button class="btn btn-success btn-user text-white" type="button"
+                                <button class="btn btn-success btn-user text-white col-lg" type="button"
                                     routerLink="/invoices/create" title="Agregar Nueva Factura">
                                     <i class="fas fa-plus"></i> Agregar Nueva Factura
                                 </button>
                             </p>
 
                             <p>
-                                <button class="btn btn-dark btn-user text-white" type="button"
-                                    routerLink="/invoices-status" title="Agregar Neuvos Estados de Facturas">
+                                <button class="btn btn-dark btn-user text-white col-lg" type="button"
+                                    routerLink="/invoices-status" title="Agregar Nuevos Estados de Facturas">
                                     <i class="fas fa-project-diagram"></i> Estados de Facturas
                                 </button>
                             </p>
 
                             <p>
-                                <button class="btn btn-primary btn-user text-white" type="button"
+                                <button class="btn btn-primary btn-user text-white col-lg" type="button"
                                     routerLink="/invoices/create" title="Descargar Reporte en Formato PDF ">
                                     <i class="fas fa-download"></i> Reporte Clientes
                                 </button>
@@ -79,25 +79,31 @@
                                         <tr *ngFor="let inv of _IInvoice">
                                             <td class="text-white">
                                                 <button class="btn btn-secondary fas fa-edit text-white"
-                                                    title="Editar Factura" routerLink="/invoices/edit"></button>
-                                                <button class="btn btn-primary fas fa-eye" title="Visualizar Factura"
-                                                    data-toggle="modal" data-target=".bd-example-modal-lg"></button>
-                                                <button class="btn btn-danger fas fa-trash-alt"
-                                                    title="Eliminar Factura"></button>
+                                                    title="Editar Factura" routerLink="/invoices/edit"
+                                                    (click)="preUpdate(inv)"></button>
+                                                <button class="btn btn-primary fas fa-eye text-white"
+                                                    title="Visualizar Factura" data-toggle="modal"
+                                                    data-target=".bd-example-modal-lg"
+                                                    (click)="getDataByIdModal(inv)"></button>
+                                                <button class="btn btn-danger fas fa-trash-alt text-white"
+                                                    title="Eliminar Factura" (click)="preDelete(inv)"></button>
                                             </td>
                                             <td> {{inv.id_Factura}} </td>
                                             <td> {{inv.clients.numeroDoc}} </td>
                                             <td> {{inv.fechaFac}} </td>
                                             <td> {{inv.valor}} </td>
                                             <td>
-                                                <span *ngIf="(inv.statuses.description=='PAGADA')" class="bg-success text-white"> &nbsp; Pagada
+                                                <span *ngIf="(inv.statuses.description=='PAGADA')"
+                                                    class="bg-success text-white"> &nbsp; Pagada
                                                     &nbsp;</span>
-                                                <span *ngIf="(inv.statuses.description=='VENCIDA')" class="bg-danger text-white"> &nbsp; Vencida
+                                                <span *ngIf="(inv.statuses.description=='VENCIDA')"
+                                                    class="bg-danger text-white"> &nbsp; Vencida
                                                     &nbsp;</span>
-                                                <span *ngIf="(inv.statuses.description=='VIGENTE')" class="bg-primary text-white"> &nbsp; Vigente
+                                                <span *ngIf="(inv.statuses.description=='VIGENTE')"
+                                                    class="bg-primary text-white"> &nbsp; Vigente
                                                     &nbsp;</span>
                                             </td>
-                                            
+
                                         </tr>
                                     </tbody>
 
@@ -113,6 +119,96 @@
 
             </div>
 
+        </div>
+
+    </div>
+
+</div>
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="d-sm-flex align-items-center justify-content-center modal-header bg-warning">
+                <h5 class="text-center modal-title" id="exampleModalLabel"> <i class="fas fa-eye"></i> <b> Visualización
+                        de Facturas </b></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="p-4">
+                            <form [formGroup]="InvoiceViewForm">
+                                <div>
+                                    <hr>
+                                    <div class="d-sm-flex align-items-center justify-content-center mb-4">
+                                        <h6 class="text-center h5 mb-0 text-primary">
+                                            <i class="fas fa-file-invoice"></i>
+                                            <b> Información General </b>
+                                        </h6>
+                                    </div>
+                                    <hr>
+                                    <div class="form-group row">
+                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <label class="font-weight-bold text-dark"> Código Factura:</label>
+                                            <input class="form-control form-control-user" formControlName="id_Factura"
+                                                title="Código Factura" type="text" placeholder="Código Factura..."
+                                                disabled />
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <label class="font-weight-bold text-dark"> Fecha Factura:</label>
+                                            <input class="form-control form-control-user" formControlName="fechaFac"
+                                                title="Fecha Factura" type="datetime" placeholder="Fecha Factura..."
+                                                disabled />
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <label class="font-weight-bold text-dark"> Valor:</label>
+                                            <input class="form-control form-control-user" formControlName="valor"
+                                                title="Valor" type="text" placeholder="Valor..." disabled />
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <label class="font-weight-bold text-dark"> Estado:</label>
+                                            <input class="form-control form-control-user bg-info text-white"
+                                                formControlName="status" title="Estado" type="text"
+                                                placeholder="Estado..." disabled />
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <hr>
+                                <div>
+                                    <div class="d-sm-flex align-items-center justify-content-center mb-4">
+                                        <h6 class="text-center h5 mb-0 text-primary">
+                                            <i class="fas fa-user"></i>
+                                            <b> Información del Cliente </b>
+                                        </h6>
+                                    </div>
+                                    <hr>
+                                    <div class="form-group row">
+                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <label class="font-weight-bold text-dark"> Nombre del Cliente:</label>
+                                            <input class="form-control form-control-user" formControlName="nameClient"
+                                                title="Nombre del Cliente" type="text"
+                                                placeholder="Nombre del Cliente..." disabled />
+                                        </div>
+                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <label class="font-weight-bold text-dark"> Número de Documento:</label>
+                                            <input class="form-control form-control-user"
+                                                formControlName="numberDocument" title="Número de Documento" type="text"
+                                                placeholder="Número de Documento..." disabled />
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info" data-dismiss="modal">Cerrar</button>
+            </div>
         </div>
 
     </div>

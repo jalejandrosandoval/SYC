@@ -24,7 +24,7 @@ const routes: Routes = [
 
   { path: 'invoices',  component: InvoicesComponent },
   { path: 'invoices/create',  component: InvoicesCreateComponent },
-  { path: 'invoices/edit/:codigo',  component: InvoicesEditComponent },
+  { path: 'invoices/edit/:idInvo',  component: InvoicesEditComponent },
 
   { path: 'invoices-status',  component: InvoicesStatusComponent },
   { path: 'invoices-status/create',  component: InvoicesStatusCreateComponent },
