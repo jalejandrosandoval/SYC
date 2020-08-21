@@ -25,7 +25,13 @@ namespace API.Controllers.Invoices
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Invoice>>> GetInvoices()
         {
-            return await _context.Invoices.ToListAsync();
+
+            return await _context.Invoices
+                            .Include(c => c.Clients)
+                            .Where(c => c.Clients.Id_Client == c._IdClient)
+                            .Include(inv_St => inv_St.Statuses)
+                            .Where(inv_St => inv_St.Statuses.CodeStatus == inv_St.CodeStatus)
+                            .ToListAsync();
         }
 
         // GET: api/Invoices/5

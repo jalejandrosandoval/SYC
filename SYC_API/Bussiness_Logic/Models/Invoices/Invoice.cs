@@ -19,13 +19,14 @@ namespace Bussiness_Logic.Models.Invoices
         [Required]
         public int _IdClient { get; set; }
 
-        public ICollection<Client> Clients{ get; set; }
+        [Required]
+        public Client Clients{ get; set; }
 
         [Required]
         public int CodeStatus { get; set; }
 
         [Required]
-        public ICollection<Invoice_Status> Statuses { get; set; }
+        public Invoice_Status Statuses { get; set; }
 
         [Required(ErrorMessage = "* Valor Requerido...")]
         [DataType(DataType.Currency)]

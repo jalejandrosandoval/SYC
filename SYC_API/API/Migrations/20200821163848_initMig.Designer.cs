@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20200821054035_initMig")]
+    [Migration("20200821163848_initMig")]
     partial class initMig
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,9 +33,6 @@ namespace API.Migrations
                         .HasColumnType("nvarchar(200)")
                         .HasMaxLength(200);
 
-                    b.Property<int?>("InvoiceId_Factura")
-                        .HasColumnType("int");
-
                     b.Property<string>("Nombre")
                         .IsRequired()
                         .HasColumnType("nvarchar(200)")
@@ -47,8 +44,6 @@ namespace API.Migrations
 
                     b.HasKey("Id_Client");
 
-                    b.HasIndex("InvoiceId_Factura");
-
                     b.ToTable("Clients");
                 });
 
@@ -59,11 +54,17 @@ namespace API.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("ClientsId_Client")
+                        .HasColumnType("int");
+
                     b.Property<int>("CodeStatus")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("FechaFac")
                         .HasColumnType("datetime2");
+
+                    b.Property<int>("StatusesCodeStatus")
+                        .HasColumnType("int");
 
                     b.Property<int>("Valor")
                         .HasColumnType("int")
@@ -73,6 +74,10 @@ namespace API.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id_Factura");
+
+                    b.HasIndex("ClientsId_Client");
+
+                    b.HasIndex("StatusesCodeStatus");
 
                     b.ToTable("Invoices");
                 });
@@ -88,28 +93,24 @@ namespace API.Migrations
                         .HasColumnType("nvarchar(20)")
                         .HasMaxLength(20);
 
-                    b.Property<int?>("InvoiceId_Factura")
-                        .HasColumnType("int");
-
                     b.HasKey("CodeStatus");
-
-                    b.HasIndex("InvoiceId_Factura");
 
                     b.ToTable("Invoice_Statuses");
                 });
 
-            modelBuilder.Entity("Bussiness_Logic.Models.Clients.Client", b =>
+            modelBuilder.Entity("Bussiness_Logic.Models.Invoices.Invoice", b =>
                 {
-                    b.HasOne("Bussiness_Logic.Models.Invoices.Invoice", null)
-                        .WithMany("Clients")
-                        .HasForeignKey("InvoiceId_Factura");
-                });
+                    b.HasOne("Bussiness_Logic.Models.Clients.Client", "Clients")
+                        .WithMany()
+                        .HasForeignKey("ClientsId_Client")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-            modelBuilder.Entity("Bussiness_Logic.Models.Invoices.Invoice_Status", b =>
-                {
-                    b.HasOne("Bussiness_Logic.Models.Invoices.Invoice", null)
-                        .WithMany("Statuses")
-                        .HasForeignKey("InvoiceId_Factura");
+                    b.HasOne("Bussiness_Logic.Models.Invoices.Invoice_Status", "Statuses")
+                        .WithMany()
+                        .HasForeignKey("StatusesCodeStatus")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }
