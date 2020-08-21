@@ -1,7 +1,9 @@
 <p>
-    <h1 align="center"> SYC PRUEBA DE DESARROLLADOR </h1>
+    <h1 align="center"> SYC PRUEBA DE DESARROLLO </h1>
 </p>
 
 ## Contexto
 
-Proyecto prueba de desarrollador SYC - Creación de una WEBAPI de tipo Rest consumida desde un FrontEND en AngularJS 9.1.9.
+Proyecto prueba de desarrollo SYC: Creación de una WEBAPI de tipo Rest consumida desde un FrontEND en AngularJS 9.1.9.
+
+Jhon Alejandro Sandoval Miranda
