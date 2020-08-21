@@ -13,7 +13,11 @@
 
             <div class="col-xl-12 col-lg-12 col-md-12">
 
-                <div class="card shadow mb-4">
+                <p *ngIf="!(_IInvoice && _IInvoice.length)" class="text-center">
+                    No existen registros para mostrar
+                </p>
+
+                <div class="card shadow mb-4"  *ngIf="_IInvoice && _IInvoice.length">
 
                     <div class="card-body">
 
@@ -72,7 +76,7 @@
 
                                     </thead>
                                     <tbody>
-                                        <tr>
+                                        <tr *ngfor="let Inv of _IInvoice">
                                             <td class="text-white">
                                                 <button class="btn btn-secondary fas fa-edit text-white"
                                                     title="Editar Factura" routerLink="/invoices/edit"></button>
@@ -81,11 +85,11 @@
                                                 <button class="btn btn-danger fas fa-trash-alt"
                                                     title="Eliminar Factura"></button>
                                             </td>
-                                            <td>  </td>
-                                            <td>  </td>
-                                            <td>  </td>
-                                            <td>  </td>
-                                            <td>  </td>
+                                            <td> {{Inv.id_Factura}} </td>
+                                            <td> {{Inv._IdClient}} </td>
+                                            <td> {{Inv.codeStatus}} </td>
+                                            <td> {{Inv.valor}} </td>
+                                            <td> {{Inv.fechaFac}} </td>
                                         </tr>
                                     </tbody>
 

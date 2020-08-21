@@ -20,7 +20,11 @@
                     </h1>
                 </div>
 
-                <div class="container">
+                <p *ngIf="!(_IInvoiceStatus && _IInvoiceStatus.length)" class="text-center">
+                    No existen registros para mostrar
+                </p>
+
+                <div class="container" *ngIf="_IInvoiceStatus && _IInvoiceStatus.length">
 
                     <div class="row justify-content-center">
             
@@ -39,7 +43,7 @@
                                         </p>
 
                                     </div>
-
+                                    
                                     <div class="table-responsive">
 
                                         <div class="table-responsive">
@@ -62,17 +66,17 @@
             
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
+                                                    <tr *ngfor="let inv of _IInvoiceStatus">
                                                         <td class="text-white">
                                                             <button class="btn btn-secondary fas fa-edit text-white"
-                                                                title="Editar Factura" routerLink="/invoices/edit"></button>
-                                                            <button class="btn btn-primary fas fa-eye" title="Visualizar Factura"
+                                                                title="Editar Estado de las Facturas" routerLink="/invoices/edit"></button>
+                                                            <button class="btn btn-primary fas fa-eye" title="Visualizar Estado de las Facturas"
                                                                 data-toggle="modal" data-target=".bd-example-modal-lg"></button>
                                                             <button class="btn btn-danger fas fa-trash-alt"
-                                                                title="Eliminar Factura"></button>
+                                                                title="Eliminar Estado de las Facturas"></button>
                                                         </td>
-                                                        <td>  </td>
-                                                        <td>  </td>
+                                                        <td> {{inv.codeStatus}} </td>
+                                                        <td> {{inv.description}} </td>
                                                     </tr>
                                                 </tbody>
             

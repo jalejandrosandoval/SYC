@@ -1,2 +1,6 @@
-export class InvoicesStatusModel {
+export interface InvoicesStatusModel {
+
+    codeStatus: number,
+    description: string
+
 }

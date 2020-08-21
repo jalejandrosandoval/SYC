@@ -9,8 +9,6 @@ import { map } from 'rxjs/operators';
 })
 export class ClientsService {
 
-  _IClients: ClientsModel[];
-
   readonly ApiPath= '/API/Clients';
 
   constructor(private http: HttpClient) {

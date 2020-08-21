@@ -13,11 +13,14 @@
 
             <div class="col-xl-12 col-lg-12 col-md-12">
 
-                <div class="card shadow mb-4">
+                <p *ngIf="!(_IClient && _IClient.length)" class="text-center">
+                    No existen registros para mostrar
+                </p>
+
+                <div class="card shadow mb-4"  *ngIf="_IClient && _IClient.length">
 
                     <div class="card-body">
 
-                        
                         <p>
                             <button class="btn btn-success btn-user text-white" type="button"
                                 routerLink="/clients/create" title="Agregar Nuevo Cliente">
