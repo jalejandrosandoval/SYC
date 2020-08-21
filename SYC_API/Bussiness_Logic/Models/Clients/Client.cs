@@ -16,7 +16,6 @@ namespace Bussiness_Logic.Models.Clients
         public int Id_Client { get; set; }
 
         [Required(ErrorMessage = "* Numero de Documento Requerido...")]
-        [StringLength(18, ErrorMessage = "No puede exceder 18 digitos")]
         [RegularExpression("([0-9]+)", ErrorMessage = "* Numero de Documento Incorrecto...")]
         [Display(Name = "Numero de Documento", Description = "Numero de Documento", Prompt = "ValNumero de Documentoor...")]
         public int NumeroDoc { get; set; }
