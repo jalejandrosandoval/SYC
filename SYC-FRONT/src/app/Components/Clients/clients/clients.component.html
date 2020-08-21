@@ -57,7 +57,8 @@
                                                 <button class="btn btn-secondary fas fa-edit text-white"
                                                     title="Editar Cliente" routerLink="/clients/edit"></button>
                                                 <button class="btn btn-primary fas fa-eye" title="Visualizar Cliente"
-                                                    data-toggle="modal" data-target=".bd-example-modal-lg"></button>
+                                                    data-toggle="modal" data-target=".bd-example-modal-lg"
+                                                    (click)="getDataByIdModal(client)"></button>
                                                 <button class="btn btn-danger fas fa-trash-alt"
                                                     title="Eliminar Cliente"></button>
                                             </td>
@@ -94,7 +95,34 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="p-4">
+                            <form [formGroup]="ClientsViewForm">
+                                <div class="d-sm-flex align-items-center justify-content-center mb-4">
+                                    <h6 class="text-center h5 mb-0 text-primary">
+                                        <b> Datos Personales </b>
+                                    </h6>
+                                </div>
+                                <hr> 
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <label class="font-weight-bold text-dark">Número de Documento:</label>
+                                        <input class="form-control form-control-user" formControlName="numeroDoc" title="Número de Documento"
+                                            type="text" placeholder="Número de Documento..." disabled />
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label class="font-weight-bold text-dark"> Nombres:</label>
+                                        <input class="form-control form-control-user" formControlName="nombre" title="Nombres"
+                                            type="text" placeholder="Nombres..." disabled />
+                                    </div>
+                                </div>
 
+                                <div class="form-group row">
+                                    <div class="col-sm-6">
+                                        <label class="font-weight-bold text-dark"> Dirección:</label>
+                                        <input class="form-control form-control-user" formControlName="direccion" title="Dirección"
+                                            type="text" placeholder="Dirección..." disabled />
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>

@@ -24,7 +24,7 @@ export class InvoicesComponent implements OnInit {
     this.getData();
   }
 
-  private getData(){
+  getData(){
 
     this.invoiceService.getInvoices()
       .subscribe(

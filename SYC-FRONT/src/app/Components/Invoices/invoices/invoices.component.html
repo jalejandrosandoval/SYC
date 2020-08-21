@@ -76,7 +76,7 @@
 
                                     </thead>
                                     <tbody>
-                                        <tr *ngfor="let Inv of _IInvoice">
+                                        <tr *ngFor="let inv of _IInvoice">
                                             <td class="text-white">
                                                 <button class="btn btn-secondary fas fa-edit text-white"
                                                     title="Editar Factura" routerLink="/invoices/edit"></button>
@@ -85,11 +85,11 @@
                                                 <button class="btn btn-danger fas fa-trash-alt"
                                                     title="Eliminar Factura"></button>
                                             </td>
-                                            <td> {{Inv.id_Factura}} </td>
-                                            <td> {{Inv._IdClient}} </td>
-                                            <td> {{Inv.codeStatus}} </td>
-                                            <td> {{Inv.valor}} </td>
-                                            <td> {{Inv.fechaFac}} </td>
+                                            <td> {{inv.id_Factura}} </td>
+                                            <td> {{inv._IdClient}} </td>
+                                            <td> {{inv.codeStatus}} </td>
+                                            <td> {{inv.valor}} </td>
+                                            <td> {{inv.fechaFac}} </td>
                                         </tr>
                                     </tbody>
 

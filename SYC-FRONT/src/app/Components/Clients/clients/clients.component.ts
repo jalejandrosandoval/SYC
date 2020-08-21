@@ -36,9 +36,9 @@ export class ClientsComponent implements OnInit {
   }
 
   ClientsViewForm = this.formBuilder.group({
-    codigo: [''],
-    descripcion: [''],
-    valor: ['']
+    numeroDoc: [''],
+    nombre: [''],
+    direccion: ['']
   });
 
   
