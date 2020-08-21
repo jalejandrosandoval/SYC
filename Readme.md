@@ -6,7 +6,7 @@
 
 Proyecto prueba de desarrollo SYC: Creación de una WEBAPI de tipo Rest consumida desde un FrontEND en AngularJS 9.1.9.
 
-Prueba Desarrollado Por: Jhon Alejandro Sandoval Miranda
+<b> Prueba Desarrollada Por: Jhon Alejandro Sandoval Miranda </b> 
 
 ## Estructura Principal de Archivos
 
