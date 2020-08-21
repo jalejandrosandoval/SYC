@@ -17,9 +17,10 @@
 
                     <div class="card-body">
 
+                        
                         <p>
                             <button class="btn btn-success btn-user text-white" type="button"
-                                routerLink="/clients/create">
+                                routerLink="/clients/create" title="Agregar Nuevo Cliente">
                                 <i class="fas fa-plus"></i> Agregar Nuevo Cliente
                             </button>
                         </p>
@@ -33,22 +34,22 @@
 
                                     <thead>
                                         <tr>
-                                            <th>
+                                            <th title="Opciones">
                                                 Opciones
                                             </th>
-                                            <th>
+                                            <th title="Número de Documento">
                                                 Número de Documento
                                             </th>
-                                            <th>
+                                            <th title="Nombre">
                                                 Nombre
                                             </th>
-                                            <th>
+                                            <th title="Dirección">
                                                 Dirección
                                             </th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
+                                        <tr *ngFor="let client of _IClient">
                                             <td class="text-white">
                                                 <button class="btn btn-secondary fas fa-edit text-white"
                                                     title="Editar Cliente" routerLink="/clients/edit"></button>
@@ -57,9 +58,9 @@
                                                 <button class="btn btn-danger fas fa-trash-alt"
                                                     title="Eliminar Cliente"></button>
                                             </td>
-                                            <td> </td>
-                                            <td> </td>
-                                            <td> </td>
+                                            <td> {{client.numeroDoc}} </td>
+                                            <td> {{client.nombre}} </td>
+                                            <td> {{client.direccion}} </td>
                                         </tr>
                                     </tbody>
 
