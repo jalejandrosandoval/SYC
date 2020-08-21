@@ -15,9 +15,6 @@ VALUES
 ('PAGADA'),
 ('VENCIDA');
 
-USE [SYC_API_BD]
-GO
-
 INSERT INTO dbo.Invoices
 (_IdClient, CodeStatus, Valor, FechaFac)
 VALUES
