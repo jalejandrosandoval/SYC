@@ -1,1 +1,66 @@
-<p>clients-create works!</p>
+<div class="container-fluid">
+
+    <div class="container">
+
+        <div class="row justify-content-center">
+
+            <div class="col-xl-10 col-lg-12 col-md-8">
+
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"> <a href="" routerLink="/clients" title="Clientes"> Clientes </a> </li>
+                        <li class="breadcrumb-item active" aria-current="page" title="Creación de Clientes"><b> Creación </b></li>
+                    </ol>
+                </nav>
+
+                <div class="d-sm-flex align-items-center justify-content-center mb-4">
+                    <h1 class="text-center h3 mb-5 text-gray-800">
+                        <i class="fas fa-users"></i>
+                        <b> Clientes </b>
+                    </h1>
+                </div>
+
+                <div class="card shadow">
+
+                    <div class="card-header py-3">
+                        <h6 class="text-primary">
+                            <i class="fas fa-user-plus"> </i> <b> Creación de Clientes </b>
+                        </h6>
+                    </div>
+
+                    <div class="card-body p-0">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="p-5">
+                                    <h6 class="m-0 font-weight-bold text-danger">
+                                        <i class="fas fa-info-circle"> </i> Los campos con (*) son requeridos...
+                                    </h6>
+
+                                    <br />
+
+                                    <div class="form-group row">
+                                        <div class="col-lg-3 mb-3 mb-lg-0 offset-lg-3">
+                                            <a class="btn btn-danger btn-user btn-block text-white" title="Cancelar"
+                                                routerLink="/clients">
+                                                <i class="fas fa-times-circle"></i> Cancelar
+                                            </a>
+                                        </div>
+                                        <div class="col-lg-3 mb-3 mb-lg-0 ">
+                                            <button type="submit" value="Create"
+                                                class="btn btn-primary btn-user btn-block text-white"
+                                                title="Guardar" [disabled]="">
+                                                <i class="fas fa-save"></i> Guardar
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

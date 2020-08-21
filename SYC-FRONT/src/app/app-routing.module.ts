@@ -15,9 +15,13 @@ import { ClientsComponent } from './Components/Clients/clients/clients.component
 import { ClientsCreateComponent } from './Components/Clients/clients-create/clients-create.component';
 import { ClientsEditComponent } from './Components/Clients/clients-edit/clients-edit.component';
 
+import { DiagramationComponent } from './Components/Diagramation/diagramation/diagramation.component';
+
 const routes: Routes = [
   { path: '',  component: HomeComponent},
-  
+
+  { path: 'diagramation',  component: DiagramationComponent},
+
   { path: 'invoices',  component: InvoicesComponent },
   { path: 'invoices/create',  component: InvoicesCreateComponent },
   { path: 'invoices/edit/:codigo',  component: InvoicesEditComponent },

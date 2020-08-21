@@ -1,11 +1,25 @@
+//MODULES
 import { BrowserModule } from '@angular/platform-browser';
+
 import { NgModule } from '@angular/core';
+import { DataTablesModule } from 'angular-datatables';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+import { RouterModule } from '@angular/router';
+
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+
+//TOASTR
+import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+
 import { NavbarComponent } from './Components/Menu/navbar/navbar.component';
 import { HomeComponent } from './Components/Menu/home/home.component';
+import { FooterComponent } from './Components/Menu/footer/footer.component';
 
 import { InvoicesComponent } from './Components/Invoices/invoices/invoices.component';
 import { InvoicesCreateComponent } from './Components/Invoices/invoices-create/invoices-create.component';
@@ -18,7 +32,8 @@ import { InvoicesStatusEditComponent } from './Components/Invoices-Status/invoic
 import { ClientsComponent } from './Components/Clients/clients/clients.component';
 import { ClientsCreateComponent } from './Components/Clients/clients-create/clients-create.component';
 import { ClientsEditComponent } from './Components/Clients/clients-edit/clients-edit.component';
-import { FooterComponent } from './Components/Menu/footer/footer.component';
+
+import { DiagramationComponent } from './Components/Diagramation/diagramation/diagramation.component';
 
 @NgModule({
   declarations: [
@@ -34,11 +49,22 @@ import { FooterComponent } from './Components/Menu/footer/footer.component';
     ClientsCreateComponent,
     ClientsEditComponent,
     HomeComponent,
-    FooterComponent
+    FooterComponent,
+    DiagramationComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    DataTablesModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    CommonModule,
+    BrowserAnimationsModule,
+    RouterModule.forRoot([]), 
+    ToastrModule.forRoot({
+      closeButton: true,
+      positionClass: "toast-top-right"
+    }),
+    HttpClientModule    
   ],
   providers: [],
   bootstrap: [AppComponent]
