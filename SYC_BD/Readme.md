@@ -15,3 +15,7 @@ La base de datos de este proyecto se realizo en SQL SERVER, en este apartado se 
     ├─ SCRIPT_DATA_BD.SQL
     └─ SCRIPT_CREATION.SQL
 ```
+
+### Modelo Entidad-Relación BD
+
+<img src="Modelo ER - BD.JPG" style="width:100%">
