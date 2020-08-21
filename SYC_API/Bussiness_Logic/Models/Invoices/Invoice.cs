@@ -14,7 +14,7 @@ namespace Bussiness_Logic.Models.Invoices
     public class Invoice
     {
         [Key]
-        public int NumeroDoc { get; set; }
+        public int Id_Factura { get; set; }
 
         [Required]
         public int Client_NDoc { get; set; }
@@ -24,15 +24,15 @@ namespace Bussiness_Logic.Models.Invoices
         [Required]
         public int CodeStatus { get; set; }
 
+        [Required]
         public ICollection<Invoice_Status> Statuses { get; set; }
 
-
-        [Required(ErrorMessage = "* Número de Identifiació Requerido...")]
+        [Required(ErrorMessage = "* Valor Requerido...")]
         [DataType(DataType.Currency)]
-        [StringLength(18, ErrorMessage = "No puede exceder 10 digitos")]
-        [RegularExpression("([0-9]+)", ErrorMessage = "* No. Identificación Incorrecto...")]
-        [Display(Name = "Número Documento", Description = "Número de Documento", Prompt = "Número de Identificación...")]
-        public string Valor { get; set; }
+        [StringLength(18, ErrorMessage = "No puede exceder 18 digitos")]
+        [RegularExpression("([0-9]+)", ErrorMessage = "* Valor Incorrecto...")]
+        [Display(Name = "Valor", Description = "Valor", Prompt = "Valor...")]
+        public int Valor { get; set; }
 
         [Required(ErrorMessage = "* Fecha Factura Requerida...")]
         [DataType(DataType.Date)]
