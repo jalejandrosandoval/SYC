@@ -8,18 +8,16 @@ Proyecto prueba de desarrollo SYC: Creación de una WEBAPI de tipo Rest consumid
 
 Prueba Desarrollado Por: Jhon Alejandro Sandoval Miranda
 
-## Estructura de Archivos
+## Estructura Principal de Archivos
 
 ```bash
 ├─ SYC_API
 │   ├─ API
 │   └─ Bussiness_Logic
 ├─ SYC_BD
-│   ├─ Modelo ER-BD.JPG
-│   ├─ SCRIPT DATA FOR BD.txt
-│   ├─ SCRIPT_DATA_BD.SQL
-│   └─ SCRIPT_CREATION.SQL
 └─ SYC_FRONT
     ├─ e2e
     └─ SRC
 ```
+
+Cada una de estas carpetas principales corresponde a proyectos separados donde se encuentra segmentado por una modularización. De igual manera, en cada ruta se encuentra una breve explicación.
