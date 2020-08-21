@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using API.Data;
 using Bussiness_Logic.Models.Clients;
 
-namespace API.Controllers
+namespace API.Controllers.Clients
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -48,7 +49,7 @@ namespace API.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutClient(int id, Client client)
         {
-            if (id != client.NumeroDoc)
+            if (id != client.Id_Client)
             {
                 return BadRequest();
             }
@@ -83,7 +84,7 @@ namespace API.Controllers
             _context.Clients.Add(client);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetClient", new { id = client.NumeroDoc }, client);
+            return CreatedAtAction("GetClient", new { id = client.Id_Client }, client);
         }
 
         // DELETE: api/Clients/5
@@ -104,7 +105,7 @@ namespace API.Controllers
 
         private bool ClientExists(int id)
         {
-            return _context.Clients.Any(e => e.NumeroDoc == id);
+            return _context.Clients.Any(e => e.Id_Client == id);
         }
     }
 }

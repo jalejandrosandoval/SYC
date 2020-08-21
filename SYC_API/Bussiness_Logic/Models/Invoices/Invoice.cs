@@ -17,7 +17,7 @@ namespace Bussiness_Logic.Models.Invoices
         public int Id_Factura { get; set; }
 
         [Required]
-        public int Client_NDoc { get; set; }
+        public int _IdClient { get; set; }
 
         public ICollection<Client> Clients{ get; set; }
 

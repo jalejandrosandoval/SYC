@@ -13,7 +13,7 @@ namespace API.Migrations
                 {
                     Id_Factura = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Client_NDoc = table.Column<int>(nullable: false),
+                    _IdClient = table.Column<int>(nullable: false),
                     CodeStatus = table.Column<int>(nullable: false),
                     Valor = table.Column<int>(maxLength: 18, nullable: false),
                     FechaFac = table.Column<DateTime>(nullable: false)
@@ -27,15 +27,16 @@ namespace API.Migrations
                 name: "Clients",
                 columns: table => new
                 {
-                    NumeroDoc = table.Column<int>(nullable: false)
+                    Id_Client = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    NumeroDoc = table.Column<int>(maxLength: 18, nullable: false),
                     Nombre = table.Column<string>(maxLength: 200, nullable: false),
                     Direccion = table.Column<string>(maxLength: 200, nullable: false),
                     InvoiceId_Factura = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Clients", x => x.NumeroDoc);
+                    table.PrimaryKey("PK_Clients", x => x.Id_Client);
                     table.ForeignKey(
                         name: "FK_Clients_Invoices_InvoiceId_Factura",
                         column: x => x.InvoiceId_Factura,

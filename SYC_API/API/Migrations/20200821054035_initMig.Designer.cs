@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20200821005518_initMig")]
+    [Migration("20200821054035_initMig")]
     partial class initMig
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,7 +23,7 @@ namespace API.Migrations
 
             modelBuilder.Entity("Bussiness_Logic.Models.Clients.Client", b =>
                 {
-                    b.Property<int>("NumeroDoc")
+                    b.Property<int>("Id_Client")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -41,7 +41,11 @@ namespace API.Migrations
                         .HasColumnType("nvarchar(200)")
                         .HasMaxLength(200);
 
-                    b.HasKey("NumeroDoc");
+                    b.Property<int>("NumeroDoc")
+                        .HasColumnType("int")
+                        .HasMaxLength(18);
+
+                    b.HasKey("Id_Client");
 
                     b.HasIndex("InvoiceId_Factura");
 
@@ -55,9 +59,6 @@ namespace API.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("Client_NDoc")
-                        .HasColumnType("int");
-
                     b.Property<int>("CodeStatus")
                         .HasColumnType("int");
 
@@ -67,6 +68,9 @@ namespace API.Migrations
                     b.Property<int>("Valor")
                         .HasColumnType("int")
                         .HasMaxLength(18);
+
+                    b.Property<int>("_IdClient")
+                        .HasColumnType("int");
 
                     b.HasKey("Id_Factura");
 
