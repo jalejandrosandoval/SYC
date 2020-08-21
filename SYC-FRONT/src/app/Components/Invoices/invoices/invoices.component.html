@@ -86,10 +86,11 @@
                                                     title="Eliminar Factura"></button>
                                             </td>
                                             <td> {{inv.id_Factura}} </td>
-                                            <td> {{inv._IdClient}} </td>
-                                            <td> {{inv.codeStatus}} </td>
-                                            <td> {{inv.valor}} </td>
+                                            <td> {{inv.clients.numeroDoc}} </td>
                                             <td> {{inv.fechaFac}} </td>
+                                            <td> {{inv.valor}} </td>
+                                            <td> {{inv.statuses.description}} </td>
+                                            
                                         </tr>
                                     </tbody>
 

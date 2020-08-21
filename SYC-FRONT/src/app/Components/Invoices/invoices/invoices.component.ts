@@ -13,6 +13,7 @@ import { ToastrService } from 'ngx-toastr';
 export class InvoicesComponent implements OnInit {
 
   _IInvoice: InvoicesModel[];
+  _InvoiceSelected: InvoicesModel;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -24,6 +25,12 @@ export class InvoicesComponent implements OnInit {
     this.getData();
   }
 
+  InvoiceViewForm = this.formBuilder.group({
+    id_Factura: [''],
+    codeStatus: [''],
+    valor: ['']
+  });
+
   getData(){
 
     this.invoiceService.getInvoices()
@@ -33,7 +40,7 @@ export class InvoicesComponent implements OnInit {
       );
 
   }
-
+  
   getError(_Error){
 
     if (_Error && _Error.error) {
