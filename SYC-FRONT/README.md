@@ -112,3 +112,40 @@ Para hacer el llamado, la vinculación o la importanción de las depencias insta
     "node_modules/datatables.net/js/jquery.dataTables.js"
     ]
 ```
+
+## Configuración de Proxy
+
+Se debe crear un archivo de tipo <b> config.proxy </b> para establecer una comunicación directa con el APIREST creada en .NETCORE esto se realiza de la siguiente manera:
+
+* Se debe crear el archivo y llamarlo de la siguiente forma así:
+
+```bash
+proxy.conf.json
+```
+
+* Seguido a ello se debe reajustar el inicio del proyecto en el archivo <b> package.json </b> más exactamente se modfican la linea de ng serve:
+
+```bash
+"scripts": {
+    ...
+    "start": "ng serve"
+    ...
+  }
+```
+
+Y se agrega <b> --proxy-config proxy.conf.json </b>, con el fin de que exista una comunicación con la API:
+
+```bash
+"scripts": {
+    ...
+    "start": "ng serve --proxy-config proxy.conf.json"
+    ...
+  }
+```
+
+* Por ultimo para iniciar el proyecto se debe tener en cuenta que se iniciar el proyecto de la API y a su vez el de angular con la siguiente linea: 
+
+```bash
+npm start
+```
+
