@@ -34,6 +34,10 @@ import { ClientsCreateComponent } from './Components/Clients/clients-create/clie
 import { ClientsEditComponent } from './Components/Clients/clients-edit/clients-edit.component';
 
 import { DiagramationComponent } from './Components/Diagramation/diagramation/diagramation.component';
+import { ClientsService } from './Services/Clients/clients.service';
+import { InvoicesService } from './Services/Invoices/invoices.service';
+import { InvoicesStatusService } from './Services/Invoices-Status/invoices-status.service';
+import { ErrorInterceptorService } from './Services/Auth/error-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -66,7 +70,16 @@ import { DiagramationComponent } from './Components/Diagramation/diagramation/di
     }),
     HttpClientModule    
   ],
-  providers: [],
+  providers: [
+    ClientsService, 
+    InvoicesService, 
+    InvoicesStatusService,
+    { 
+      provide: HTTP_INTERCEPTORS, 
+      useClass: ErrorInterceptorService, 
+      multi: true 
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

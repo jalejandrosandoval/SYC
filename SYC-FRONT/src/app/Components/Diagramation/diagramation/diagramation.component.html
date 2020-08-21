@@ -15,49 +15,12 @@
 
                 <div class="row">
 
-                    <div id="mdb-lightbox-ui"></div>
-
-                    <div class="col-xl-4 col-md-6 mb-4">
+                    <div class="col-xl-4 col-md-6 mb-4" *ngFor="let img of images">
                         <div class="card shadow">
-                            <a href="../../../../assets/154112.jpg"></a>
-                            <img src="../../../../assets/wallpaper-hd-1920x1080-4k.jpg" style="width:100%">
-                        </div>
-                    </div>
-
-                    <div class="col-xl-4 col-md-6 mb-4">
-                        <div class="card shadow">
-                            <img src="../../../../assets/55592hd.jpg" style="width:100%" data-toggle="modal" data-target="#exampleModal"/>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-md-6 mb-4">
-                        <div class="card shadow">
-                            <img src="../../../../assets/Evening_Forests_Mountains_Firewatch_Campo_Santo_549147_1920x1080.jpg"
-                                style="width:100%" />
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-md-6 mb-4">
-                        <div class="card shadow">
-                            <img src="../../../../assets/55592hd.jpg" style="width:100%" />
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-md-6 mb-4">
-                        <div class="card shadow">
-                            <img src="../../../../assets/170948.jpg" style="width:100%" />
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-md-6 mb-4">
-                        <div class="card shadow">
-                            <img src="../../../../assets/273139.jpg" style="width:100%" />
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-md-6 mb-4">
-                        <div class="card shadow">
-                            <img src="../../../../assets/564870.jpg" style="width:100%" />
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-md-6 mb-4">
-                        <div class="card shadow">
-                            <img src="../../../../assets/154112.jpg" style="width:100%" />
+                            <div>
+                                <img [src]="img" style="width:100%" (click)="getImage(img)"
+                                data-toggle="modal" data-target=".bd-example-modal-lg">
+                            </div>
                         </div>
                     </div>
 
@@ -71,21 +34,20 @@
 
 </div>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
     aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="d-sm-flex align-items-center justify-content-center modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-info" data-dismiss="modal">Cerrar</button>
+                <img src="{{_img}}" style="width:100%"> 
             </div>
         </div>
+
     </div>
 </div>
