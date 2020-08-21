@@ -85,6 +85,7 @@ Junto con la instalación del siguiente paquete, el cual ayuda a la funcionalida
 ```bash
 npm i @angular/animations --save
 ```
+
 * #### Instalación de Datatables -> Visualizar en tablas info
 
 ```bash
@@ -93,4 +94,21 @@ npm install datatables.net-dt --save
 npm install angular-datatables --save
 npm install @types/jquery --save-dev
 npm install @types/datatables.net --save-dev
+```
+
+### Llamar o Vincular las dependencias instaladas en el proyecto
+
+Para hacer el llamado, la vinculación o la importanción de las depencias instaladas se debe modificar el archivo <b> angular.json </b>, más exactamente se deben agregar estas lineas:
+
+```bash
+"styles": [
+    "src/styles.css",
+    "node_modules/datatables.net-dt/css/jquery.dataTables.css"              
+    ],
+"scripts": [
+    "node_modules/jquery/dist/jquery.min.js",
+    "node_modules/@popperjs/core/dist/umd/popper.min.js",
+    "node_modules/bootstrap/dist/js/bootstrap.min.js",
+    "node_modules/datatables.net/js/jquery.dataTables.js"
+    ]
 ```
