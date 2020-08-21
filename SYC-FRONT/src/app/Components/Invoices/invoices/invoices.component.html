@@ -89,7 +89,14 @@
                                             <td> {{inv.clients.numeroDoc}} </td>
                                             <td> {{inv.fechaFac}} </td>
                                             <td> {{inv.valor}} </td>
-                                            <td> {{inv.statuses.description}} </td>
+                                            <td>
+                                                <span *ngIf="(inv.statuses.description=='PAGADA')" class="bg-success text-white"> &nbsp; Pagada
+                                                    &nbsp;</span>
+                                                <span *ngIf="(inv.statuses.description=='VENCIDA')" class="bg-danger text-white"> &nbsp; Vencida
+                                                    &nbsp;</span>
+                                                <span *ngIf="(inv.statuses.description=='VIGENTE')" class="bg-primary text-white"> &nbsp; Vigente
+                                                    &nbsp;</span>
+                                            </td>
                                             
                                         </tr>
                                     </tbody>
