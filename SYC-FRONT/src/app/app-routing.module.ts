@@ -32,7 +32,7 @@ const routes: Routes = [
 
   { path: 'clients',  component: ClientsComponent },
   { path: 'clients/create',  component: ClientsCreateComponent },
-  { path: 'clients/edit/:codigo',  component: ClientsEditComponent },
+  { path: 'clients/edit/:id_Client',  component: ClientsEditComponent },
   { path: '**', redirectTo: '' }
 ];
 

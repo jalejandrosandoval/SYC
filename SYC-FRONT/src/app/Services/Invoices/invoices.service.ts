@@ -16,7 +16,7 @@ export class InvoicesService {
   constructor(private http: HttpClient) {
   }
 
-  //Getting ClientData through httpClient of Angular -> ApiPath 
+  //Getting InvoiceData through httpInvoice of Angular -> ApiPath 
 
   getInvoices(): Observable<InvoicesModel[]>{
     return this.http.get<InvoicesModel[]>(this.ApiPath);  
@@ -29,8 +29,8 @@ export class InvoicesService {
   postInvoices(_IInvoiceModel: InvoicesModel): Observable<InvoicesModel>{
     return this.http.post<InvoicesModel>(this.ApiPath, _IInvoiceModel)
       .pipe(
-        map(Client => {
-          return Client;
+        map(Invoice => {
+          return Invoice;
         }
       ));
   }

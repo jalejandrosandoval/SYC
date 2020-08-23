@@ -37,6 +37,8 @@ export class ClientsCreateComponent implements OnInit {
         },
         error => this.getError(error)  
         );
+
+        console.log(Object.values(this.ClientsCreateForm));
   }
   
   get ClientCreateFormData() { 

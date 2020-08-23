@@ -55,7 +55,8 @@
                                         <tr *ngFor="let client of _IClient">
                                             <td class="text-white">
                                                 <button class="btn btn-secondary fas fa-edit text-white"
-                                                    title="Editar Cliente" routerLink="/clients/edit"></button>
+                                                    title="Editar Cliente" routerLink="/clients/edit"
+                                                    (click)="preUpdate(client)"></button>
                                                 <button class="btn btn-primary fas fa-eye" title="Visualizar Cliente"
                                                     data-toggle="modal" data-target=".bd-example-modal-lg"
                                                     (click)="getDataByIdModal(client)"></button>

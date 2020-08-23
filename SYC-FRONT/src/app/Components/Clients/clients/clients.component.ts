@@ -64,11 +64,11 @@ export class ClientsComponent implements OnInit {
 
   preUpdate(_IClient: ClientsModel){
 
-    var codigo = _IClient.id_Client;
+    var id_Client = _IClient.id_Client;
 
     var ruta = `clients/edit/`;
 
-    this.router.navigateByUrl(ruta + `${codigo}`);
+    this.router.navigateByUrl(ruta + `${id_Client}`);
   }
 
   preDelete(_IClient: ClientsModel){
