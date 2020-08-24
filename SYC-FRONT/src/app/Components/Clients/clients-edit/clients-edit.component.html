@@ -4,7 +4,7 @@
 
         <div class="row justify-content-center">
 
-            <div class="col-xl-10 col-lg-12 col-md-8">
+            <div class="col-xl-10 col-lg-12 col-md-10 col-sm-10">
 
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
@@ -37,6 +37,74 @@
                                     </h6>
 
                                     <br />
+
+                                    <form [formGroup]="ClientsEditForm" (ngSubmit)="onEdit()">
+                                        <div class="d-sm-flex align-items-center justify-content-center mb-4">
+                                            <h6 class="text-center h5 mb-0 text-primary">
+                                                <b> Información General </b>
+                                            </h6>
+                                        </div>
+                                        <hr>
+                                        <div class="form-group row">
+                                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                                <label class="font-weight-bold text-dark">Número de Documento(*):</label>
+                                                <input class="form-control form-control-user" formControlName="numeroDoc" title="Número de Documento" type="number" minlength="1"
+                                                    placeholder="Número de Documento..." maxlength="10" pattern="^[0-9]+" 
+                                                    oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" required />
+                                                <span
+                                                    *ngIf="ClientsEditFormData.numeroDoc.invalid && (ClientsEditFormData.numeroDoc.dirty || ClientsEditFormData.numeroDoc.touched)"
+                                                    class="text-center text-danger small">
+                                                    <span *ngIf="ClientsEditFormData.numeroDoc.errors.required">
+                                                        <b> * Campo Requerido: </b> Número de Documento Requerido!
+                                                    </span>
+                                                </span>
+                                            </div>
+                                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                                <label class="font-weight-bold text-dark"> Nombre(*):</label>
+                                                <input class="form-control form-control-user" formControlName="nombre" title="Nombre" type="text" 
+                                                placeholder="Nombres..." required />
+                                                <span
+                                                    *ngIf="ClientsEditFormData.nombre.invalid && (ClientsEditFormData.nombre.dirty || ClientsEditFormData.nombre.touched)"
+                                                    class="text-center text-danger small">
+                                                    <span *ngIf="ClientsEditFormData.nombre.errors.required">
+                                                        <b> * Campo Requerido: </b> Nombre del Cliente Requerido!
+                                                    </span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                                <label class="font-weight-bold text-dark">Dirección(*):</label>
+                                                <input class="form-control form-control-user" formControlName="direccion" title="Dirección" type="text" minlength="1"
+                                                    placeholder="Dirección..." required />
+                                                <span
+                                                    *ngIf="ClientsEditFormData.direccion.invalid && (ClientsEditFormData.direccion.dirty || ClientsEditFormData.direccion.touched)"
+                                                    class="text-center text-danger small">
+                                                    <span *ngIf="ClientsEditFormData.direccion.errors.required">
+                                                        <b> * Campo Requerido: </b> Dirección del Cliente Requerido!
+                                                    </span>
+                                                </span>
+                                            </div>                                            
+                                        </div>
+                                        <hr>
+                                        <br>
+                                        <div class="form-group row">
+                                            <div class="col-lg-3 mb-3 mb-lg-0 offset-lg-3">
+                                                <a class="btn btn-danger btn-user btn-block text-white" title="Cancelar"
+                                                    routerLink="/clients">
+                                                    <i class="fas fa-times-circle"></i> Cancelar
+                                                </a>
+                                            </div>
+                                            <div class="col-lg-3 mb-3 mb-lg-0 ">
+                                                <button type="submit" value="Create"
+                                                    class="btn btn-primary btn-user btn-block text-white"
+                                                    title="Guardar" [disabled]="ClientsEditForm.invalid">
+                                                    <i class="fas fa-save"></i> Guardar
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                    </form>
 
                                 </div>
 
