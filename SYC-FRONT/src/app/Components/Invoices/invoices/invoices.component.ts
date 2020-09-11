@@ -65,7 +65,9 @@ export class InvoicesComponent implements OnInit {
         this._Client = res,
         error => this.getError(error) 
       }
-    )
+    );
+
+    console.log("DATA: " + Object.values(this._Client));
 
     this.invoiceStatusService.getInvoicesStatusById(Id_InvStatus).subscribe(
       res=>
@@ -73,7 +75,7 @@ export class InvoicesComponent implements OnInit {
         this._InvoiceStatus = res,
         error => this.getError(error) 
       }
-    )
+    );
 
     this.invoiceService.getInvoicesById(Id_Inv).subscribe(
       res => 
