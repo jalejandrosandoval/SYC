@@ -28,7 +28,7 @@ namespace API.Controllers.Invoices
 
             return await _context.Invoices
                             .Include(c => c.Clients)
-                            .Where(c => c.Clients.Id_Client == c._IdClient)
+                            .Where(c => c.Clients.NumeroDoc == c._IdClient)
                             .Include(inv_St => inv_St.Statuses)
                             .Where(inv_St => inv_St.Statuses.CodeStatus == inv_St.CodeStatus)
                             .ToListAsync();
@@ -48,9 +48,6 @@ namespace API.Controllers.Invoices
             return invoice;
         }
 
-        // PUT: api/Invoices/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for
-        // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
         public async Task<IActionResult> PutInvoice(int id, Invoice invoice)
         {

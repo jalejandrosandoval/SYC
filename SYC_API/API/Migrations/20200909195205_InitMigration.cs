@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace API.Migrations
 {
-    public partial class initMig : Migration
+    public partial class InitMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,7 +13,7 @@ namespace API.Migrations
                 {
                     Id_Client = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    NumeroDoc = table.Column<int>(maxLength: 18, nullable: false),
+                    NumeroDoc = table.Column<int>(nullable: false),
                     Nombre = table.Column<string>(maxLength: 200, nullable: false),
                     Direccion = table.Column<string>(maxLength: 200, nullable: false)
                 },
@@ -42,9 +42,9 @@ namespace API.Migrations
                     Id_Factura = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     _IdClient = table.Column<int>(nullable: false),
-                    ClientsId_Client = table.Column<int>(nullable: false),
+                    ClientsId_Client = table.Column<int>(nullable: true),
                     CodeStatus = table.Column<int>(nullable: false),
-                    StatusesCodeStatus = table.Column<int>(nullable: false),
+                    StatusesCodeStatus = table.Column<int>(nullable: true),
                     Valor = table.Column<int>(maxLength: 18, nullable: false),
                     FechaFac = table.Column<DateTime>(nullable: false)
                 },
@@ -56,13 +56,13 @@ namespace API.Migrations
                         column: x => x.ClientsId_Client,
                         principalTable: "Clients",
                         principalColumn: "Id_Client",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Invoices_Invoice_Statuses_StatusesCodeStatus",
                         column: x => x.StatusesCodeStatus,
                         principalTable: "Invoice_Statuses",
                         principalColumn: "CodeStatus",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(

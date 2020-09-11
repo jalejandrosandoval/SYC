@@ -12,6 +12,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
 
 namespace API
 {
@@ -54,10 +55,21 @@ namespace API
                   options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
             );
 
+            //Configuration the Swagger Docs
+
+            services.AddSwaggerGen(config =>
+            {
+                config.SwaggerDoc("V1.0", new OpenApiInfo
+                {
+                    Title = "SYC - API V1.0",
+                    Version = "V1.0",
+                    Description = "SYC - API"
+                });
+            });
+            
             services.AddControllers();
+        
         }
-
-
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -66,6 +78,13 @@ namespace API
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            //SWAGGER
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/V1.0/swagger.json", "SYC - API V1.0");
+            });
 
             // CORS
             app.UseCors("AllowSpecificOrigin");

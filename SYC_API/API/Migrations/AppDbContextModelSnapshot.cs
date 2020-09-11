@@ -15,7 +15,7 @@ namespace API.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.7")
+                .HasAnnotation("ProductVersion", "3.1.8")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -37,8 +37,7 @@ namespace API.Migrations
                         .HasMaxLength(200);
 
                     b.Property<int>("NumeroDoc")
-                        .HasColumnType("int")
-                        .HasMaxLength(18);
+                        .HasColumnType("int");
 
                     b.HasKey("Id_Client");
 
@@ -52,7 +51,7 @@ namespace API.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("ClientsId_Client")
+                    b.Property<int?>("ClientsId_Client")
                         .HasColumnType("int");
 
                     b.Property<int>("CodeStatus")
@@ -61,7 +60,7 @@ namespace API.Migrations
                     b.Property<DateTime>("FechaFac")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("StatusesCodeStatus")
+                    b.Property<int?>("StatusesCodeStatus")
                         .HasColumnType("int");
 
                     b.Property<int>("Valor")
@@ -100,15 +99,11 @@ namespace API.Migrations
                 {
                     b.HasOne("Bussiness_Logic.Models.Clients.Client", "Clients")
                         .WithMany()
-                        .HasForeignKey("ClientsId_Client")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ClientsId_Client");
 
                     b.HasOne("Bussiness_Logic.Models.Invoices.Invoice_Status", "Statuses")
                         .WithMany()
-                        .HasForeignKey("StatusesCodeStatus")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("StatusesCodeStatus");
                 });
 #pragma warning restore 612, 618
         }

@@ -21,14 +21,12 @@ namespace API.Controllers.Invoices
             _context = context;
         }
 
-        // GET: api/Invoice_Status
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Invoice_Status>>> GetInvoice_Statuses()
         {
             return await _context.Invoice_Statuses.ToListAsync();
         }
 
-        // GET: api/Invoice_Status/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Invoice_Status>> GetInvoice_Status(int id)
         {
@@ -42,9 +40,6 @@ namespace API.Controllers.Invoices
             return invoice_Status;
         }
 
-        // PUT: api/Invoice_Status/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for
-        // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
         public async Task<IActionResult> PutInvoice_Status(int id, Invoice_Status invoice_Status)
         {
