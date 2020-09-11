@@ -5,10 +5,6 @@ using System.Text;
 
 namespace Bussiness_Logic.Models.Clients
 {
-    /// <summary>
-    /// 
-    /// </summary>
-    
     [Serializable]
     public class Client
     {

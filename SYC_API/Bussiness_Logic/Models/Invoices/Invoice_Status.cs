@@ -5,10 +5,6 @@ using System.Text;
 
 namespace Bussiness_Logic.Models.Invoices
 {
-    /// <summary>
-    /// 
-    /// </summary>
-
     [Serializable]
 
     public class Invoice_Status

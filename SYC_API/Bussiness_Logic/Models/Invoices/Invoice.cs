@@ -19,13 +19,11 @@ namespace Bussiness_Logic.Models.Invoices
         [Required]
         public int _IdClient { get; set; }
 
-        [Required]
         public Client Clients{ get; set; }
 
         [Required]
         public int CodeStatus { get; set; }
 
-        [Required]
         public Invoice_Status Statuses { get; set; }
 
         [Required(ErrorMessage = "* Valor Requerido...")]
